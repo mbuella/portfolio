@@ -1,0 +1,51 @@
+{
+  "name": "mbuella-portfolio",
+  "version": "1.0.0",
+  "description": "Marlon Buella's Portfolio built with Bootstrap 3.3.7",
+  "main": "serve.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack --mode development",
+    "serve": "webpack serve --mode production",
+    "serve:dev": "webpack serve --mode development",
+    "build": "webpack --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mbuella/portfolio.git"
+  },
+  "author": "Marlon B. Buella",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mbuella/portfolio/issues"
+  },
+  "homepage": "https://github.com/mbuella/portfolio#readme",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "devicons": "^1.8.0",
+    "font-awesome": "^4.7.0",
+    "jquery": "^1.11.1",
+    "popper.js": "^1.16.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.2.1",
+    "css-loader": "^5.0.1",
+    "cssnano": "^4.1.10",
+    "file-loader": "^6.2.0",
+    "font-awesome-loader": "^1.0.2",
+    "html-webpack-plugin": "^5.0.0-beta.4",
+    "image-webpack-loader": "^7.0.1",
+    "imagemin-webp-webpack-plugin": "^3.3.3",
+    "less": "^4.0.0",
+    "less-loader": "^7.2.1",
+    "mini-css-extract-plugin": "^1.3.3",
+    "postcss-loader": "^4.1.0",
+    "precss": "^4.0.0",
+    "serve": "^11.3.2",
+    "style-loader": "^2.0.0",
+    "terser-webpack-plugin": "^5.1.1",
+    "webpack": "^5.12.2",
+    "webpack-cli": "^4.3.1",
+    "webpack-dev-server": "^3.11.1"
+  }
+}
