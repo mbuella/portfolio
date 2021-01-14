@@ -6,7 +6,9 @@
 require('./bootstrap.less');
 require('./main.less');
 
-//scripts
+/* scripts */
+
+// bootstrap
 require('bootstrap/js/button');
 require('bootstrap/js/tooltip');
 require('bootstrap/js/popover');

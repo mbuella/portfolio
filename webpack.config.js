@@ -5,7 +5,9 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const HtmlCriticalWebpackPlugin = require("html-critical-webpack-plugin");
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+const PurgeCSSPlugin = require('purgecss-webpack-plugin');
 const path = require('path');
+const glob = require('glob');
 
 /**
  * Base webpack configuration
@@ -122,6 +124,14 @@ module.exports = (env, argv) => {
       splitChunks: { chunks: 'all' }
     };
 
+    config.resolve = {
+      extensions: [ ".js" ],
+      modules: [ path.resolve(__dirname, 'src'), "node_modules" ],
+      alias: {
+        jquery: "jquery/src/jquery"
+      }
+    };
+
     config.plugins.push(
       new HtmlCriticalWebpackPlugin({
         base: path.resolve(__dirname, 'dist'),
@@ -135,6 +145,9 @@ module.exports = (env, argv) => {
         penthouse: {
           blockJSRequests: false,
         }
+      }),
+      new PurgeCSSPlugin({
+        paths: glob.sync(path.join(__dirname, 'src') + '/**/*',  { nodir: true }),
       }),
       new ImageMinimizerPlugin({
         minimizerOptions: {
