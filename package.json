@@ -7,8 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack --mode development",
     "serve": "webpack serve --mode production",
-    "serve:dev": "webpack serve --mode development",
-    "build": "webpack --mode production"
+    "serve:dev": "webpack serve --mode development --hot --inline",
+    "build": "webpack --mode production",
+    "clear": "del-cli dist"
   },
   "repository": {
     "type": "git",
@@ -32,6 +33,7 @@
     "css-loader": "^5.0.1",
     "css-minimizer-webpack-plugin": "^1.2.0",
     "cssnano": "^4.1.10",
+    "del-cli": "^3.0.1",
     "file-loader": "^6.2.0",
     "font-awesome-loader": "^1.0.2",
     "html-critical-webpack-plugin": "^2.1.0",

@@ -4,7 +4,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const HtmlCriticalWebpackPlugin = require("html-critical-webpack-plugin");
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
-const ImageminWebpWebpackPlugin = require("imagemin-webp-webpack-plugin");
 const TerserPlugin = require('terser-webpack-plugin');
 const path = require('path');
 
@@ -26,10 +25,9 @@ module.exports = (env, argv) => {
     },
   };
 
-  return {
+  let config = {
     devServer: {
       contentBase: path.join(__dirname, 'dist'),
-      compress: true,
       host: '127.0.0.1',
       port: 8080
     },
@@ -37,39 +35,7 @@ module.exports = (env, argv) => {
       vendor: path.resolve(__dirname, './src/vendor.js'),
       main: path.resolve(__dirname, './src/main.js'),
     },
-    optimization: {
-      minimize: true,
-      minimizer: [
-        new ImageMinimizerPlugin({
-          // Only apply this one to files equal to or over 8192 bytes
-          filter: (source) => {
-            return (source.byteLength >= 8192);
-          },
-          minimizerOptions: {
-            plugins: [['jpegtran', { progressive: true }]],
-            plugins: [['optipng', { optimizationLevel: 6 }]],
-          },
-        }),
-        new ImageMinimizerPlugin({
-          // Only apply this one to files under 8192
-          filter: (source) => {
-            return (source.byteLength < 8192);
-          },
-          minimizerOptions: {
-            plugins: [['jpegtran', { progressive: false }]],
-          },
-        }),
-        new CssMinimizerPlugin({
-          minimizerOptions: {
-            preset: ['default', {
-              discardComments: { removeAll: true },
-            }],
-          },
-        }),
-        new TerserPlugin({ parallel: true })
-      ],
-      splitChunks: { chunks: 'all' },
-    },
+    optimization: {},
     output: {
       filename: 'js/[name].bundle' + (isProd ? '.[contenthash]' : '') + '.js',
       path: path.resolve(__dirname, 'dist'),
@@ -105,6 +71,58 @@ module.exports = (env, argv) => {
         }
       }),
       new MiniCssExtractPlugin({ filename: 'css/[name].bundle' + (isProd ? '.[contenthash]' : '') + '.css' }),
+      new webpack.ProvidePlugin({
+        // inject ES5 modules as global vars
+        $: 'jquery',
+        jQuery: 'jquery',
+        'window.jQuery': 'jquery',
+        Popper: ['popper.js', 'default']
+      }),
+    ],
+  };
+
+  /* Production-specific config */
+  if(!isProd) {
+    config.plugins.push(new webpack.SourceMapDevToolPlugin({}));
+  } else {
+    config.devServer.compress = true;
+    config.devServer.https = true;
+
+    config.optimization = {
+      minimize: true,
+      minimizer: [
+        new ImageMinimizerPlugin({
+          // Only apply this one to files equal to or over 8192 bytes
+          filter: (source) => {
+            return (source.byteLength >= 8192);
+          },
+          minimizerOptions: {
+            plugins: [['jpegtran', { progressive: true }]],
+            plugins: [['optipng', { optimizationLevel: 6 }]],
+          },
+        }),
+        new ImageMinimizerPlugin({
+          // Only apply this one to files under 8192
+          filter: (source) => {
+            return (source.byteLength < 8192);
+          },
+          minimizerOptions: {
+            plugins: [['jpegtran', { progressive: false }]],
+          },
+        }),
+        new CssMinimizerPlugin({
+          minimizerOptions: {
+            preset: ['default', {
+              discardComments: { removeAll: true },
+            }],
+          },
+        }),
+        new TerserPlugin({ parallel: true })
+      ],
+      splitChunks: { chunks: 'all' }
+    };
+
+    config.plugins.push(
       new HtmlCriticalWebpackPlugin({
         base: path.resolve(__dirname, 'dist'),
         src: 'index.html',
@@ -134,13 +152,8 @@ module.exports = (env, argv) => {
         filename: 'img/[name].webp',
         minimizerOptions: { plugins: ['imagemin-webp'] },
       }),
-      new webpack.ProvidePlugin({
-        // inject ES5 modules as global vars
-        $: 'jquery',
-        jQuery: 'jquery',
-        'window.jQuery': 'jquery',
-        Popper: ['popper.js', 'default']
-      }),
-    ],
-  };
+    );
+  }
+
+  return config;
 }
