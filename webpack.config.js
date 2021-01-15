@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const HtmlCriticalWebpackPlugin = require("html-critical-webpack-plugin");
+const GoogleTagManagerPlugin = require("webpack-google-tag-manager-plugin");
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const PurgeCSSPlugin = require('purgecss-webpack-plugin');
@@ -38,6 +39,9 @@ module.exports = (env, argv) => {
       main: path.resolve(__dirname, './src/main.js'),
     },
     optimization: {},
+    externals: {
+      jquery: 'jQuery'
+    },  
     output: {
       filename: 'js/[name].bundle' + (isProd ? '.[contenthash]' : '') + '.js',
       path: path.resolve(__dirname, 'dist'),
@@ -124,15 +128,10 @@ module.exports = (env, argv) => {
       splitChunks: { chunks: 'all' }
     };
 
-    config.resolve = {
-      extensions: [ ".js" ],
-      modules: [ path.resolve(__dirname, 'src'), "node_modules" ],
-      alias: {
-        jquery: "jquery/src/jquery"
-      }
-    };
-
     config.plugins.push(
+      new GoogleTagManagerPlugin({
+        id: 'GTM-MQ224HV',
+      }),
       new HtmlCriticalWebpackPlugin({
         base: path.resolve(__dirname, 'dist'),
         src: 'index.html',
