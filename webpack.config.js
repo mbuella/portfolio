@@ -88,6 +88,7 @@ module.exports = (env, argv) => {
 
   /* Production-specific config */
   if(!isProd) {
+    config.devServer.writeToDisk = true;
     config.plugins.push(new webpack.SourceMapDevToolPlugin({}));
   } else {
     config.devServer.compress = true;
