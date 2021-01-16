@@ -3,7 +3,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const HtmlCriticalWebpackPlugin = require("html-critical-webpack-plugin");
-const GoogleTagManagerPlugin = require("webpack-google-tag-manager-plugin");
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const PurgeCSSPlugin = require('purgecss-webpack-plugin');
@@ -129,9 +128,6 @@ module.exports = (env, argv) => {
     };
 
     config.plugins.push(
-      new GoogleTagManagerPlugin({
-        id: 'GTM-MQ224HV',
-      }),
       new HtmlCriticalWebpackPlugin({
         base: path.resolve(__dirname, 'dist'),
         src: 'index.html',
