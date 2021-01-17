@@ -144,6 +144,9 @@ module.exports = (env, argv) => {
       }),
       new PurgeCSSPlugin({
         paths: glob.sync(path.join(__dirname, 'src') + '/**/*',  { nodir: true }),
+        safelist: {
+          standard: [ /^tooltip-inner/, /^tooltip-arrow/ ],
+        }    
       }),
       new ImageMinimizerPlugin({
         minimizerOptions: {
