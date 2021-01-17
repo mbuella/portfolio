@@ -39,7 +39,7 @@ $(function () {
       }
     }
   });
-  $('[data-toggle="tooltip"]').tooltip();
+  $('#skills').find('[data-toggle="tooltip"]').tooltip();
 });
 //#to-top button appears after scrolling
 var fixed = false;
