@@ -3,11 +3,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const HtmlCriticalWebpackPlugin = require("html-critical-webpack-plugin");
-const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
-const PurgeCSSPlugin = require('purgecss-webpack-plugin');
 const path = require('path');
-const glob = require('glob');
 
 /**
  * Base webpack configuration
@@ -22,7 +19,16 @@ module.exports = (env, argv) => {
     loader: "postcss-loader",
     options: {
       postcssOptions: {
-        plugins: [["postcss-preset-env", {}]],
+        plugins: [
+          isProd && ["@fullhuman/postcss-purgecss", {
+            content: ['./**/*.ejs'],
+            safelist: {
+              standard: [ /^active/,/^tooltip-inner/, /^tooltip-arrow/ ],
+            }   
+          }],
+          ["autoprefixer", {}],
+          ["postcss-preset-env", {}]
+        ],
       },
     },
   };
@@ -53,9 +59,26 @@ module.exports = (env, argv) => {
           use: [ MiniCssExtractPlugin.loader, 'css-loader', postCssLoader, 'less-loader' ],
         },
         {
-          test: /\.(jpe?g|png|gif|svg|webp)$/i,
+          test: /\.(gif|svg)$/i,
           loader: 'file-loader',
           options: { name: '[name].[ext]', outputPath: 'img', esModule: false }
+        },
+        {
+          test: /\.(jpe?g|png|webp)$/i,
+           use: [
+            {
+              loader: "responsive-loader",
+              options: {
+                adapter: require("responsive-loader/sharp"),
+                placeholder: true,
+                placeholderSize: 114,
+                sizes: [1423],
+                format: 'webp',
+                name: '[name]-[width].[ext]',
+                outputPath: 'img'
+              },
+            },
+          ],
         },
         {
           test: /\.woff(2)?$|\.ttf$|\.eot$/,
@@ -68,7 +91,7 @@ module.exports = (env, argv) => {
       new HtmlWebpackPlugin({
         inject: false,
         favicon: 'favicon.png',
-        template: path.resolve(__dirname, './src/index.html.ejs'),
+        template: path.resolve(__dirname, './templates/index.html.ejs'),
         title: 'Marlon B. Buella',
         meta: {
           charset: { charset: 'utf-8' },
@@ -97,25 +120,6 @@ module.exports = (env, argv) => {
     config.optimization = {
       minimize: true,
       minimizer: [
-        new ImageMinimizerPlugin({
-          // Only apply this one to files equal to or over 8192 bytes
-          filter: (source) => {
-            return (source.byteLength >= 8192);
-          },
-          minimizerOptions: {
-            plugins: [['jpegtran', { progressive: true }]],
-            plugins: [['optipng', { optimizationLevel: 6 }]],
-          },
-        }),
-        new ImageMinimizerPlugin({
-          // Only apply this one to files under 8192
-          filter: (source) => {
-            return (source.byteLength < 8192);
-          },
-          minimizerOptions: {
-            plugins: [['jpegtran', { progressive: false }]],
-          },
-        }),
         new CssMinimizerPlugin({
           minimizerOptions: {
             preset: ['default', {
@@ -141,28 +145,6 @@ module.exports = (env, argv) => {
         penthouse: {
           blockJSRequests: false,
         }
-      }),
-      new PurgeCSSPlugin({
-        paths: glob.sync(path.join(__dirname, 'src') + '/**/*',  { nodir: true }),
-        safelist: {
-          standard: [ /^tooltip-inner/, /^tooltip-arrow/ ],
-        }    
-      }),
-      new ImageMinimizerPlugin({
-        minimizerOptions: {
-          plugins: [
-            ['svgo', {
-              plugins: [{ removeViewBox: false }],
-            }],
-          ],
-        },
-        // Disable `loader`
-        loader: false
-      }),
-      new ImageMinimizerPlugin({
-        deleteOriginalAssets: false,
-        filename: 'img/[name].webp',
-        minimizerOptions: { plugins: ['imagemin-webp'] },
       }),
     );
   }

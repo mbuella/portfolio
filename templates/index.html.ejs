@@ -648,8 +648,8 @@
             <div class="col-md-6">
               <div class="portfolio-item">
                 <a href="//mbuella.github.io/tuitt-milestone1/" target="_blank">
-                  <!-- <%=require('./../assets/screenshots/milestone1.jpg')%> -->
-                  <img class="img-portfolio img-responsive" src="img/milestone1.webp">
+                  <% image = require('./../assets/screenshots/milestone1.jpg?size=458') %>
+                  <img class="img-portfolio img-responsive" alt="Pinoy History!" width="<%=image.width%>" height="<%=image.height%>" src="<%=image.placeholder%>" data-src="<%=image.src%>">
                   <div class="portfolio-caption">
                     <div class="portfolio-caption-content">
                       <div class="project-name">
@@ -678,8 +678,8 @@
             <div class="col-md-6">
               <div class="portfolio-item">
                 <a href="//vejeux.herokuapp.com/" target="_blank">
-                  <!-- <%=require('./../assets/screenshots/vejeux.jpg')%> -->
-                  <img class="img-portfolio img-responsive" src="img/vejeux.webp">
+                  <% image = require('./../assets/screenshots/vejeux.jpg?size=458') %>
+                  <img class="img-portfolio img-responsive" alt="Vins et Jeux" width="<%=image.width%>" height="<%=image.height%>" src="<%=image.placeholder%>" data-src="<%=image.src%>">
                   <div class="portfolio-caption">
                     <div class="portfolio-caption-content">
                       <div class="project-name">
@@ -708,8 +708,8 @@
             <div class="col-md-6">
               <div class="portfolio-item">
                 <a href="//kwntu.herokuapp.com/" target="_blank">
-                  <!-- <%=require('./../assets/screenshots/kwntu1.jpg')%> -->
-                  <img class="img-portfolio img-responsive" src="img/kwntu1.webp">
+                  <% image = require('./../assets/screenshots/kwntu1.jpg?size=458') %>
+                  <img class="img-portfolio img-responsive" alt="kwntu" width="<%=image.width%>" height="<%=image.height%>" src="<%=image.placeholder%>" data-src="<%=image.src%>">
                   <div class="portfolio-caption">
                     <div class="portfolio-caption-content">
                       <div class="project-name">
@@ -738,8 +738,8 @@
             <div class="col-md-6">
               <div class="portfolio-item">
                 <a href="#COMING-SOON!" target="_blank">
-                  <!-- <%=require('./../assets/screenshots/kwntu2.jpg')%> -->
-                  <img class="img-portfolio img-responsive" src="img/kwntu2.webp">
+                  <% image = require('./../assets/screenshots/kwntu2.jpg?size=458') %>
+                  <img class="img-portfolio img-responsive" alt="kwntu v2.0" width="<%=image.width%>" height="<%=image.height%>" src="<%=image.placeholder%>" data-src="<%=image.src%>">
                   <div class="portfolio-caption">
                     <div class="portfolio-caption-content">
                       <div class="project-name">
@@ -782,8 +782,8 @@
       <div class="row">
         <div class="col-sm-12 col-md-6 text-center">
           <div id="id-photo" class="img-circle img-responsive mt-3">
-            <!-- <%=require('./../assets/images/mbuella.png')%> -->
-            <img src="img/mbuella.webp">
+            <% image = require('./../assets/images/mbuella.png?size=200') %>
+            <img alt="Marlon Buella" width="<%=image.width%>" height="<%=image.height%>" src="<%=image.placeholder%>" data-src="<%=image.src%>">
           </div>
           <h4><strong>Marlon B. Buella</strong>
           </h4>

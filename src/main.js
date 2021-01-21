@@ -27,6 +27,12 @@ $("#menu-toggle").on('click', function (e) {
 });
 // Scrolls to the selected menu item on the page
 $(function () {
+  $('img').each(function(i){
+    if ($(this).data('src')) {
+      $(this).attr('src', $(this).data('src')); 
+    }
+  });
+
   $('a[href*=\\#]:not([href=\\#],[data-toggle],[data-target],[data-slide])').on('click', function () {
     if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
       var target = $(this.hash);
