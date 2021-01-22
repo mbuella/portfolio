@@ -95,7 +95,9 @@ module.exports = (env, argv) => {
         title: 'Marlon B. Buella',
         meta: {
           charset: { charset: 'utf-8' },
-          viewport: 'width=device-width, initial-scale=1'
+          viewport: 'width=device-width, initial-scale=1',
+          description: 'A passionate web developer, helping companies build highly converting websites.',
+          keywords: 'Full Stack Developer, PHP Developer, Drupal 8 Developer'
         }
       }),
       new MiniCssExtractPlugin({ filename: 'css/[name].bundle' + (isProd ? '.[contenthash]' : '') + '.css' }),
