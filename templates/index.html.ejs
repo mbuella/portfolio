@@ -19,9 +19,6 @@
       href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic"
       rel="stylesheet" type="text/css">
 
-    <!-- Open Street Map -->
-    <link defer href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" rel="stylesheet"/>
-
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -821,7 +818,9 @@
           </ul>
         </div>
         <div class="col-sm-12 col-md-6">
-          <div id="osm-map" class="map mt-3"></div>
+          <div id="osm-map" class="map mt-3">
+            <iframe width="100%" height="425" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=425&amp;hl=en&amp;q=ESCOPA%20II+(Marlon%20Buella)&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+          </div>
         </div>
       </div>
     </div>
@@ -845,35 +844,6 @@
 
   <!-- jQuery -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
-
-  <!-- OpenStreetMap JS -->
-  <script defer src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", function(event) {
-      // Where you want to render the map.
-      var element = document.getElementById('osm-map');
-
-      // Height has to be set. You can do this in CSS too.
-      element.style = 'height:inherit;';
-
-      // Create Leaflet map on map element.
-      var map = L.map(element);
-
-      // Add OSM tile leayer to the Leaflet map.
-      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-      }).addTo(map);
-
-      // Target's GPS coordinates.
-      var target = L.latLng('14.624', '121.07487');
-
-      // Set map's center to target with zoom 18.
-      map.setView(target, 18);
-
-      // Place a marker on the same location.
-      L.marker(target).addTo(map);
-    })
-  </script>
 </body>
 
 </html>
