@@ -11,7 +11,6 @@ require('./main.less');
 // bootstrap
 require('bootstrap/js/button');
 require('bootstrap/js/tooltip');
-require('bootstrap/js/popover');
 
 console.log("Main script starts here.");
 
