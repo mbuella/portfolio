@@ -1,53 +1,50 @@
 {
   "name": "mbuella-portfolio",
-  "version": "1.0.0",
-  "description": "Marlon Buella's Portfolio built with Bootstrap 3.3.7",
-  "main": "serve.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --mode production",
-    "build:dev": "webpack --mode development",
-    "serve": "webpack serve --mode production",
-    "serve:dev": "webpack serve --mode development",
-    "clear": "del-cli dist"
-  },
+  "description": "Marlon Buella's Portfolio powered by Gatsby JS and Tailwind CSS",
+  "author": "Marlon B. Buella",
+  "version": "2.0.0-alpha",
+  "private": true,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mbuella/portfolio.git"
   },
-  "author": "Marlon B. Buella",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/mbuella/portfolio/issues"
   },
   "homepage": "https://github.com/mbuella/portfolio#readme",
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "dev": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+  },
   "dependencies": {
-    "bootstrap": "^3.4.1",
-    "popper.js": "^1.16.1"
+    "@babel/plugin-external-helpers": "^7.12.1",
+    "babel-preset-gatsby": "^0.11.0",
+    "gatsby": "^2.31.1",
+    "gatsby-image": "^2.10.0",
+    "gatsby-plugin-postcss": "^3.6.0",
+    "gatsby-plugin-preact": "^4.6.0",
+    "gatsby-plugin-react-helmet": "^3.10.0",
+    "gatsby-plugin-sharp": "^2.13.4",
+    "gatsby-source-filesystem": "^2.10.0",
+    "gatsby-transformer-sharp": "^2.11.0",
+    "gatsby-transformer-yaml": "^2.10.0",
+    "postcss": "^8.2.4",
+    "postcss-import": "^14.0.0",
+    "postcss-preset-env": "^6.7.0",
+    "preact": "^10.5.12",
+    "preact-render-to-string": "^5.1.12",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-helmet": "^6.1.0",
+    "tailwindcss": "^2.0.2"
   },
   "devDependencies": {
-    "@fullhuman/postcss-purgecss": "^4.0.0",
-    "autoprefixer": "^10.2.1",
-    "common-tags": "^1.8.0",
-    "css-loader": "^5.0.1",
-    "css-minimizer-webpack-plugin": "^1.2.0",
-    "cssnano": "^4.1.10",
-    "del-cli": "^3.0.1",
-    "file-loader": "^6.2.0",
-    "html-critical-webpack-plugin": "^2.1.0",
-    "html-webpack-plugin": "^5.0.0-beta.4",
-    "less": "^4.0.0",
-    "less-loader": "^7.2.1",
-    "mini-css-extract-plugin": "^1.3.3",
-    "postcss-loader": "^4.1.0",
-    "postcss-preset-env": "^6.7.0",
-    "responsive-loader": "^2.3.0",
-    "serve": "^11.3.2",
-    "sharp": "^0.27.0",
-    "style-loader": "^2.0.0",
-    "terser-webpack-plugin": "^5.1.1",
-    "webpack": "^5.12.2",
-    "webpack-cli": "^4.3.1",
-    "webpack-dev-server": "^3.11.1"
+    "prettier": "^2.2.1"
   }
 }
