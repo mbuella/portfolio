@@ -1,3 +1,13 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
+/* Components */
+@layer components {
+  .button-default {
+    @apply bg-mbuella-gray-800 hover:bg-mbuella-gray-700 px-4 py-3 rounded-lg inline-block;
+  }
+  .button-primary {
+    @apply button-default bg-mbuella-fuchsia-500 text-mbuella-gray-50 hover:bg-mbuella-fuchsia-600;
+  }
+}

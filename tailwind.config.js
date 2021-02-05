@@ -1,8 +1,15 @@
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = {
   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      fontFamily: {
+        'sans': ['Nunito', 'sans-serif'],
+        'serif': ['Raleway', 'serif'],
+        'mono': [...defaultTheme.fontFamily.mono]
+      },
       colors: {
         mbuella: {
           gray: {
@@ -16,7 +23,8 @@ module.exports = {
           },
           fuchsia: {
             '400': '#FB6EAE',
-            '500': '#C74375'
+            '500': '#C74375',
+            '600': '#b33c69'
           }
         }
       }

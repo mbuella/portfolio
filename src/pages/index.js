@@ -1,20 +1,23 @@
 import React from "react"
 import Layout from "./../layouts/default"
-import PostList from "./sections/post-list"
+import Avatar from "./../../data/images/avatar.svg"
 
 // page specific css here
 
 // page specific js here
 
 const Content = (
-  <React.Fragment>
-    {/* <div class="container my-12 mx-auto px-4 md:px-12">
-      <h1 class="text-center text-3xl font-bold">Tailwind's Blog Posts</h1>
+  <section class="hero h-screen py-10 text-center flex flex-col justify-center items-center">
+    <Avatar />
+    <div class="max-w-md mt-6">
+      <h1 class="text-4xl font-serif text-mbuella-gray-300 font-bold">Marlon Buella</h1>
+      <p class="mt-1">A passionate web developer, helping companies build highly converting websites.</p>
+      <div class="buttons mt-6">
+        <a href="#contactme" class="button-default">Contact Me</a>
+        <a href="#aboutme" class="button-primary ml-5">Learn More</a>
+      </div>
     </div>
-    <div class="container my-12 mx-auto px-4 md:px-12">
-      <PostList />
-    </div> */}
-  </React.Fragment>
+  </section>
 )
 
 class Index extends React.Component {
