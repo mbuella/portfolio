@@ -9,7 +9,7 @@ module.exports = {
   /* Your site config here */
   siteMetadata: {
     title: "",
-    titleTemplate: "%s / Marlon Buella · Backend Web Developer",
+    titleSuffix: "Marlon Buella · Backend Web Developer",
     metas: [
       { name: 'description', content: "A passionate web developer, helping companies build highly converting websites."},
       { name: 'keywords', content: "Full Stack Developer, Backend Web Developer, PHP Developer, Drupal 8 Developer" }

@@ -8,20 +8,20 @@ const SEO = ({ title, metas, links }) => {
   const { site } = useStaticQuery(query)
 
   const {
-    defaultTitle,
-    titleTemplate,
+    titleSuffix,
     defaultMetas,
     defaultLinks
   } = site.siteMetadata
   
   const seo = {
-    title: title || defaultTitle,
+    title: title || '',
+    titleTemplate: `%s / ${titleSuffix}`,
     metas: Object.assign(defaultMetas, metas),
     links: Object.assign(defaultLinks, links),
   }
 
   return (
-    <Helmet title={seo.title} titleTemplate={titleTemplate} meta={seo.metas} link={seo.links}>
+    <Helmet title={seo.title} titleTemplate={seo.titleTemplate} defaultTitle={titleSuffix} meta={seo.metas} link={seo.links}>
       <body class=" bg-mbuella-gray-900  text-mbuella-gray-400 text-lg" />
     </Helmet>
   )
@@ -47,8 +47,7 @@ const query = graphql`
   query SEO {
     site {
       siteMetadata {
-        defaultTitle: title
-        titleTemplate
+        titleSuffix,
         defaultMetas: metas {
           name
           content
