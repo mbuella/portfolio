@@ -8,6 +8,6 @@
     @apply bg-mbuella-gray-800 hover:bg-mbuella-gray-700 px-4 py-3 rounded-lg inline-block;
   }
   .button-primary {
-    @apply button-default bg-mbuella-fuchsia-500 text-mbuella-gray-50 hover:bg-mbuella-fuchsia-600;
+    @apply button-default bg-mbuella-fuchsia-700 text-mbuella-gray-50 hover:bg-mbuella-fuchsia-800;
   }
 }
