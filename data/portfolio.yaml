@@ -1,0 +1,39 @@
+portfolio:
+  firstName: Marlon
+  middleName: Bueza
+  lastName: Buella
+  intro: A passionate web developer, helping companies build highly converting websites.
+  photo: images/mbuella.png
+  aboutText: >-
+    <p>Hello there!</p>
+    <p>I am Marlon, a web developer based in Quezon City, Philippines. I am a full-stack developer, specializing in backend web application development.</p>
+    <p>I develop CMS applications in PHP, built with Drupal and OctoberCMS. I also have a background in developing Magento sites for e-commerce.</p>
+    <p>My interests are front end development using JS frameworks (VueJS, Riot.js) and Tailwind CSS, and modern backend development using NodeJS, MongoDB and  GraphQL.</p>
+  resumeFile: files/resume_v3.pdf
+  skills:
+    progLang:
+      - name: PHP
+        rate: 95
+      - name: Javascript
+        rate: 90
+      - name: HTML/CSS
+        rate: 98
+      - name: Python
+        rate: 25
+      - name: LESS/SCSS
+        rate: 50
+      - name: Shell/Bash Scripting
+        rate: 35
+    frameworks:
+      - name: Drupal 8
+        rate: 95
+      - name: OctoberCMS/Laravel 5
+        rate: 90
+      - name: Magento 2
+        rate: 50
+      - name: jQuery
+        rate: 85
+      - name: Bootstrap 4.0/3.5
+        rate: 90
+      - name: NodeJS
+        rate: 35

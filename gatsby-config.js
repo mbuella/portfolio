@@ -23,10 +23,16 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-transformer-yaml',
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: path.join(__dirname, 'data'),
+      }
+    },
+    {
       resolve: "gatsby-plugin-react-svg",
       options: {
         rule: {
-          include: /images/ // See below to configure properly
+          include: /images/
         }
       }
     },

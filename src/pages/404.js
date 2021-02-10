@@ -7,7 +7,8 @@ import Avatar from "./../../data/images/avatar.svg"
 
 // page specific js here
 
-const Content = (
+const NotFoundPage = () => (
+  <Layout pageTitle="Page Not Found">
     <section class="hero h-screen py-10 text-center flex flex-col justify-center items-center">
       <Avatar />
       <div class="max-w-lg mt-6">
@@ -15,14 +16,7 @@ const Content = (
         <p class="mt-1">Maybe it's just a typo? If not, just go back to <Link class="text-mbuella-fuchsia-400" to="/">homepage</Link>.</p>
       </div>
     </section>
+  </Layout>
 )
 
-class Index extends React.Component {
-  render() {
-    return (
-      <Layout pageTitle="404 Not Found" content={Content}></Layout>
-    )
-  }
-}
-
-export default Index
+export default NotFoundPage

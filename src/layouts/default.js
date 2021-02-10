@@ -3,7 +3,7 @@ import SEO from '../components/seo'
 
 // fonts
 import "@fontsource/nunito"
-import "@fontsource/raleway"
+import "@fontsource/raleway/500.css"
 
 // global CSS here
 import "./../styles/tailwind.css"
@@ -11,10 +11,12 @@ import "./../styles/main.css"
 
 // global JS here
 
-const Layout = ({ pageTitle, content }) => (
+const Layout = (props) => (
   <React.Fragment>
-    <SEO title={pageTitle}/>
-    <main class="mx-5">{content}</main>
+    <SEO title={props.pageTitle}/>
+    <main class="mx-5">
+      {props.children}
+    </main>
   </React.Fragment>
 )
 
