@@ -4,6 +4,7 @@ import Layout from "./../layouts/default"
 import HeroSection from "./../sections/index/hero"
 import AboutMeSection from "./../sections/index/aboutme"
 import SkillsSection from "./../sections/index/skills"
+import WorksSection from "./../sections/index/works"
 
 // page specific css here
 
@@ -26,6 +27,9 @@ const IndexPage = ({ data }) => {
       />
       <SkillsSection
         skills={portfolio.skills}
+      />
+      <WorksSection
+        works={portfolio.works}
       />
     </Layout>
   )
@@ -60,6 +64,19 @@ export const query = graphql`
             name
             rate
           }
+        }
+        works {
+          title
+          image {
+            childImageSharp {
+              fluid(maxWidth: 372, maxHeight: 250, cropFocus: CENTER, sizes: "(max-width: 736px) 320px, 1280px", srcSetBreakpoints: [736,1280]) {
+                ...GatsbyImageSharpFluid_withWebp
+              }
+            }
+          }
+          description
+          link
+          githubUrl
         }
       }
     }

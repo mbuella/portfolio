@@ -37,3 +37,37 @@ portfolio:
         rate: 90
       - name: NodeJS
         rate: 35
+  works:
+    - title: Pinoy History!
+      image: images/works/milestone1.jpg
+      description: >-
+        An informative blog site which showcases the colorful history of the Philippines,
+        from pre-colonial era to the Japanese occupation.
+      link: https://mbuella.github.io/tuitt-milestone1/
+      githubUrl: https://github.com/mbuella/tuitt-milestone1
+    - title: Vins et Jeux
+      image: images/works/vejeux.jpg
+      description: >-
+        One of the prestigious wine shops in the country, it offers you the finest wines
+        around the world. Champagne? Red wines? We've got it all for you!
+      link: https://vejeux.herokuapp.com/
+      githubUrl: https://github.com/mbuella/tuitt-milestone-1.5
+    - title: kwntu
+      image: images/works/kwntu1.jpg
+      description: >-
+        Certified book lover? A self-acclaimed Filipino author? At kwntu, readers explore
+        a new world of fascinating Filipino culture, and writers bring them into a new realm
+        they have never been into.
+      link: https://kwntu.herokuapp.com/
+      githubUrl: https://github.com/mbuella/tuitt-milestone2
+    - title: kwntu v2.0
+      image: images/works/kwntu2.jpg
+      description: >-
+        Yup! kwntu version two. And just got better. Never miss a story on a trend, or that
+        novel you read at night. Who knows, your book could be the next craze in the town!
+      githubUrl: https://github.com/mbuella/tuitt-milestone3
+
+
+
+
+

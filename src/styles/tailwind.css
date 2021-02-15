@@ -22,11 +22,11 @@
   }
 
   h3 {
-    @apply font-bold text-2xl text-mbuella-gray-400;
+    @apply font-bold text-2xl text-mbuella-gray-400 tracking-wide;
   }
 
   h4 {
-    @apply text-mbuella-gray-500 font-bold;
+    @apply text-mbuella-gray-500 font-bold tracking-wide;
   }
 
   /* Buttons */

@@ -28,14 +28,7 @@ module.exports = {
         path: path.join(__dirname, 'data'),
       }
     },
-    {
-      resolve: "gatsby-plugin-react-svg",
-      options: {
-        rule: {
-          include: /images/
-        }
-      }
-    },
+    'gatsby-plugin-react-svg',
     'gatsby-plugin-preact',
     'gatsby-plugin-postcss',
   ],
