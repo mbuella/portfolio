@@ -66,8 +66,20 @@ portfolio:
         Yup! kwntu version two. And just got better. Never miss a story on a trend, or that
         novel you read at night. Who knows, your book could be the next craze in the town!
       githubUrl: https://github.com/mbuella/tuitt-milestone3
-
-
+  contact:
+    address: Block 6 Lot 5, Bistek Ville 3 ESCOPA II, Project 4, Quezon City
+    tel: +63 123 456 7890
+    mobile: +63 927 302 0958
+    email: marlon.b.buella@gmail.com
+    social:
+      # - id: facebook
+      #   link: https://fb.me/alon.buella
+      - id: linkedin
+        link: https://ph.linkedin.com/in/mharzbuella
+      - id: github
+        link: https://github.com/mbuella
+      - id: dribbble
+        link: https://dribble.com/mbuella
 
 
 

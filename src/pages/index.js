@@ -5,6 +5,7 @@ import HeroSection from "./../sections/index/hero"
 import AboutMeSection from "./../sections/index/aboutme"
 import SkillsSection from "./../sections/index/skills"
 import WorksSection from "./../sections/index/works"
+import ContactSection from "./../sections/index/contact"
 
 // page specific css here
 
@@ -30,6 +31,13 @@ const IndexPage = ({ data }) => {
       />
       <WorksSection
         works={portfolio.works}
+      />
+      <ContactSection
+        address={portfolio.contact.address}
+        email={portfolio.contact.email}
+        mobile={portfolio.contact.mobile}
+        tel={portfolio.contact.tel}
+        social={portfolio.contact.social}
       />
     </Layout>
   )
@@ -77,6 +85,16 @@ export const query = graphql`
           description
           link
           githubUrl
+        }
+        contact {
+          address
+          email
+          mobile
+          tel
+          social {
+            id
+            link
+          }
         }
       }
     }

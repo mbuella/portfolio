@@ -1,8 +1,16 @@
 @import "tailwindcss/base";
+
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-/* Components */
+/* Base overrides */
+@layer base {
+  input, textarea {
+    @apply outline-none;
+  }
+}
+
+/* Components overrides */
 @layer components {
   /* Root elements */
   h1, h2, h3 {
@@ -31,9 +39,14 @@
 
   /* Buttons */
   .button-default {
-    @apply bg-mbuella-gray-800 hover:bg-mbuella-gray-700 px-4 py-3 rounded-lg inline-block;
+    @apply bg-mbuella-gray-800 hover:bg-mbuella-gray-700 px-4 py-3 rounded-lg inline-block cursor-pointer;
   }
   .button-primary {
     @apply button-default bg-mbuella-fuchsia-700 text-mbuella-gray-50 hover:bg-mbuella-fuchsia-800;
+  }
+
+  /* Inputs */
+  .text-base {
+    @apply w-full px-4 py-3 bg-mbuella-gray-800 bg-opacity-50 border border-mbuella-gray-700 focus:border-mbuella-gray-400 rounded-lg text-mbuella-gray-400 placeholder-mbuella-gray-500;
   }
 }
