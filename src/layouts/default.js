@@ -1,5 +1,6 @@
 import React from "react"
 import SEO from '../components/seo'
+import Footer from "../fragments/footer"
 
 // fonts
 import "@fontsource/nunito"
@@ -17,6 +18,7 @@ const Layout = (props) => (
     <main class="mx-5">
       {props.children}
     </main>
+    <Footer />
   </React.Fragment>
 )
 
