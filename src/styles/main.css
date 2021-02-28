@@ -1,1 +1,7 @@
 /*** Custom CSS Here ***/
+
+@media screen and (min-width: 1024px) {
+  #works .item {
+    max-width: calc( 50% - 12px );
+  }
+}

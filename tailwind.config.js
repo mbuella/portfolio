@@ -39,7 +39,7 @@ module.exports = {
   },
   variants: {
     extend: {
-      padding: ['odd', 'even']
+      margin: ['odd', 'even']
     },
   },
   plugins: [],

@@ -49,22 +49,21 @@ portfolio:
       image: images/works/vejeux.jpg
       description: >-
         One of the prestigious wine shops in the country, it offers you the finest wines
-        around the world. Champagne? Red wines? We've got it all for you!
+        around the world.
       link: https://vejeux.herokuapp.com/
       githubUrl: https://github.com/mbuella/tuitt-milestone-1.5
     - title: kwntu
       image: images/works/kwntu1.jpg
       description: >-
-        Certified book lover? A self-acclaimed Filipino author? At kwntu, readers explore
-        a new world of fascinating Filipino culture, and writers bring them into a new realm
-        they have never been into.
+        At kwntu, readers explore a new world of fascinating Filipino culture, and writers
+        bring them into a new realm they have never been into.
       link: https://kwntu.herokuapp.com/
       githubUrl: https://github.com/mbuella/tuitt-milestone2
     - title: kwntu v2.0
       image: images/works/kwntu2.jpg
       description: >-
         Yup! kwntu version two. And just got better. Never miss a story on a trend, or that
-        novel you read at night. Who knows, your book could be the next craze in the town!
+        novel you read at night.
       githubUrl: https://github.com/mbuella/tuitt-milestone3
   contact:
     address: Block 6 Lot 5, Bistek Ville 3 ESCOPA II, Project 4, Quezon City

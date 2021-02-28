@@ -6,7 +6,7 @@ const SkillsSection = ({ skills }) => {
     <section id="skills" class="text-center pt-12">
       <h2>My Skills</h2>
       <div class="max-w-3xl mx-auto mt-8 lg:space-x-6 space-y-6 lg:space-y-0 flex flex-col lg:flex-row">
-        <div class="w-full mx-auto bg-mbuella-gray-800 bg-opacity-50 px-5 py-8 rounded-lg">  
+        <div class="w-full mx-auto bg-mbuella-gray-800 bg-opacity-75 px-5 py-8 rounded-lg">  
           <div class="lg:h-16 flex items-center justify-center">
             <h3>Programming Languages</h3>
           </div>
@@ -17,7 +17,7 @@ const SkillsSection = ({ skills }) => {
           </div>
           )}
         </div>
-        <div class="w-full mx-auto bg-mbuella-gray-800 bg-opacity-50 px-5 py-8 rounded-lg">  
+        <div class="w-full mx-auto bg-mbuella-gray-800 bg-opacity-75 px-5 py-8 rounded-lg">  
           <div class="lg:h-16 flex items-center justify-center">
             <h3>Frameworks</h3>
           </div>
