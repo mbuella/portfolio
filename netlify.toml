@@ -1,0 +1,14 @@
+[build]
+  publish = "public/"
+
+  # Default build command.
+  command = "yarn build"
+
+  functions = "api/"
+
+# Production context settings
+[context.production]
+  environment = { NODE_ENV = "production" }
+
+# Dev branch context settings
+[context.dev]
