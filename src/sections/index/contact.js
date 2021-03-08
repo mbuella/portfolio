@@ -1,6 +1,7 @@
 import React from "react"
 import { LocationMarker, Phone, DeviceMobile, Mail } from "heroicons-react"
 import ZestIcon from "../../components/zest-icon"
+import ReCAPTCHA from "react-google-recaptcha"
 
 const ContactSection = ({ address, email, mobile, tel, social }) => {
   return (
@@ -12,16 +13,22 @@ const ContactSection = ({ address, email, mobile, tel, social }) => {
       </p>
       <div class="max-w-3xl mx-auto mt-8 lg:space-x-6 space-y-6 lg:space-y-0 flex flex-col lg:flex-row">
         <div class="w-full mx-auto">  
-          <form action="/contact-success" name="contact" method="POST" netlify-honeypot="bot-field" data-netlify-recaptcha="true" data-netlify="true">
+          <form
+            name="contact"
+            method="POST"
+            netlify-honeypot="bot-field"
+            data-netlify-recaptcha="true"
+            data-netlify="true"
+            action="/contact-success"
+          >
+            {/* Honeypot */}
+            <input class="hidden" name="bot-field" />
             <div class="space-y-6">
-              {/* Honeypot */}
-              <input class="hidden" name="bot-field" />
               <input type="text" name="name" id="name" placeholder="Name" class="text-base" required></input>
               <input type="email" name="email" id="email" placeholder="Email" class="text-base" required></input>
               <textarea name="message" id="message" placeholder="Message" class="text-base" rows="5" style={{minHeight: '50px'}} required></textarea>
+              <ReCAPTCHA className="inline-block mx-auto" theme="dark" sitekey={process.env.GATSBY_RECAPTCHA_KEY} />
             </div>
-            {/* Google reCaptcha */}
-            <div data-netlify-recaptcha="true"></div>
             <button type="submit" class="button-primary w-48 mt-12">Send</button>
           </form>
         </div>
