@@ -14,7 +14,9 @@ const WorksSection = ({ works }) => {
               <p>{work.description}</p>
               <div class="text-center mt-5 space-x-5">
                 <a href={work.githubUrl} class="text-mbuella-fuchsia-600" rel="nofollow" target="_blank">Source</a>
-                <a href={work.link} class="button-small" rel="nofollow" target="_blank">View</a>
+                {work.link ? (
+                  <a href={work.link} class="button-small" rel="nofollow" target="_blank">View</a>
+                ) : ""}
               </div>
             </div>
             {/* <a href="#">
