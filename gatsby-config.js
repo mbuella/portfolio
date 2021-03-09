@@ -10,6 +10,7 @@ module.exports = {
   siteMetadata: {
     title: "",
     titleSuffix: "Marlon Buella · Backend Web Developer",
+    htmlAttributes: { lang: 'en' },
     metas: [
       { name: 'description', content: "A passionate web developer, helping companies build highly converting websites."},
       { name: 'keywords', content: "Full Stack Developer, Backend Web Developer, PHP Developer, Drupal 8 Developer" }

@@ -13,9 +13,9 @@ const WorksSection = ({ works }) => {
               <h3 class="text-center mb-3">{work.title}</h3>
               <p>{work.description}</p>
               <div class="text-center mt-5 space-x-5">
-                <a href={work.githubUrl} class="text-mbuella-fuchsia-600" rel="nofollow" target="_blank">Source</a>
+                <a href={work.githubUrl} class="text-mbuella-fuchsia-500" rel="noopener noreferrer nofollow" target="_blank">Source</a>
                 {work.link ? (
-                  <a href={work.link} class="button-small" rel="nofollow" target="_blank">View</a>
+                  <a href={work.link} class="button-small" rel="noopener noreferrer nofollow" target="_blank">View</a>
                 ) : ""}
               </div>
             </div>

@@ -18,7 +18,7 @@
   }
 
   h1, h2 {
-    @apply text-mbuella-gray-300;
+    @apply text-mbuella-gray-200;
   }
 
   h1 {
@@ -30,11 +30,11 @@
   }
 
   h3 {
-    @apply font-bold text-2xl text-mbuella-gray-400 tracking-wide;
+    @apply font-bold text-2xl text-mbuella-gray-300 tracking-wide;
   }
 
   h4 {
-    @apply text-mbuella-gray-500 font-bold tracking-wide;
+    @apply text-mbuella-gray-400 font-bold tracking-wide;
   }
 
   /* Buttons */

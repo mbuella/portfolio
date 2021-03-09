@@ -14,6 +14,7 @@ module.exports = {
         mbuella: {
           gray: {
             '50': '#FAFAFA',
+            '200': '#E5E5E2',
             '300': '#D4D4D4',
             '400': '#A3A3A3',
             '500': '#737373',

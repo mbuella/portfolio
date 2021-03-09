@@ -9,6 +9,7 @@ const SEO = ({ title, metas, links }) => {
 
   const {
     titleSuffix,
+    htmlAttributes,
     defaultMetas,
     defaultLinks
   } = site.siteMetadata
@@ -16,12 +17,13 @@ const SEO = ({ title, metas, links }) => {
   const seo = {
     title: title || '',
     titleTemplate: `%s / ${titleSuffix}`,
+    htmlAttributes: htmlAttributes || {},
     metas: Object.assign(defaultMetas, metas),
     links: Object.assign(defaultLinks, links),
   }
 
   return (
-    <Helmet title={seo.title} titleTemplate={seo.titleTemplate} defaultTitle={titleSuffix} meta={seo.metas} link={seo.links}>
+    <Helmet title={seo.title} titleTemplate={seo.titleTemplate} defaultTitle={titleSuffix} meta={seo.metas} link={seo.links} htmlAttributes={seo.htmlAttributes}>
       <body class=" bg-mbuella-gray-900  text-mbuella-gray-400 text-lg" />
     </Helmet>
   )
@@ -31,12 +33,14 @@ export default SEO
 
 SEO.propTypes = {
   title: PropTypes.string,
+  htmlAttributes: PropTypes.object,
   metas: PropTypes.arrayOf(PropTypes.object),
   links: PropTypes.arrayOf(PropTypes.object),
 }
 
 SEO.defaultProps = {
   title: null,
+  htmlAttributes: { lang: 'en' },
   metas: [],
   links: [
     { rel: 'icon', href: favicon }
@@ -48,6 +52,9 @@ const query = graphql`
     site {
       siteMetadata {
         titleSuffix,
+        htmlAttributes {
+          lang
+        }
         defaultMetas: metas {
           name
           content

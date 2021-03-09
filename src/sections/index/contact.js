@@ -24,9 +24,9 @@ const ContactSection = ({ address, email, mobile, tel, social }) => {
             {/* Honeypot */}
             <input class="hidden" name="bot-field" />
             <div class="space-y-6">
-              <input type="text" name="name" id="name" placeholder="Name" class="text-base" required></input>
-              <input type="email" name="email" id="email" placeholder="Email" class="text-base" required></input>
-              <textarea name="message" id="message" placeholder="Message" class="text-base" rows="5" style={{minHeight: '50px'}} required></textarea>
+              <input type="text" name="name" id="name" placeholder="Name" aria-label="Name" class="text-base" required></input>
+              <input type="email" name="email" id="email" placeholder="Email" aria-label="Email" class="text-base" required></input>
+              <textarea name="message" id="message" placeholder="Message" aria-label="Message" class="text-base" rows="5" style={{minHeight: '50px'}} required></textarea>
               <ReCAPTCHA className="inline-block mx-auto" theme="dark" sitekey={process.env.GATSBY_RECAPTCHA_KEY} />
             </div>
             <button type="submit" class="button-primary w-48 mt-12">Send</button>
@@ -61,7 +61,7 @@ const ContactSection = ({ address, email, mobile, tel, social }) => {
           </div>
           <div class="mt-8 space-x-6">
             {social.map((item) =>
-            <a href={item.link} target="_blank" rel="nofollow">
+            <a href={item.link} target="_blank" rel="noopener noreferrer nofollow" aria-label={item.id}>
               <ZestIcon uid={item.id} className="w-10 h-10 inline-block fill-current text-mbuella-fuchsia-600" />
             </a>
             )}
